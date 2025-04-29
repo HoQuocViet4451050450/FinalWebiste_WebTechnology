@@ -1,0 +1,102 @@
+/* background toàn màn hình */
+.background {
+    background: url('https://i.pinimg.com/1200x/d6/35/45/d6354511509723366efd69d576b85c04.jpg') no-repeat center center/cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* form-container có animation slide-up */
+  .form-container {
+    animation: slideUp 0.8s ease-out;
+  }
+  
+  /* animation trượt lên */
+  @keyframes slideUp {
+    from {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* card trắng đen sang trọng */
+  .card {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    width: 360px;
+    color: #000;
+  }
+  
+  /* tiêu đề */
+  .card h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: #222;
+  }
+  
+  /* nhóm input */
+  .input-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    background-color: #f9f9f9;
+  }
+  
+  /* biểu tượng nếu cần */
+  .input-group i {
+    color: #666;
+    margin-right: 0.5rem;
+  }
+  
+  /* input và select */
+  .input-group input,
+  .input-group select {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    background: transparent;
+    color: #000;
+  }
+  
+  /* nút đăng ký */
+  .submit-btn {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    background: #000;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .submit-btn:hover {
+    background: #333;
+  }
+  
+  /* link đăng nhập */
+  .login-link {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .login-link a {
+    color: #000;
+    text-decoration: underline;
+  }
+  

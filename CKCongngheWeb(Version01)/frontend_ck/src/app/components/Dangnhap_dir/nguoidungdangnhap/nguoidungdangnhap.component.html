@@ -1,0 +1,36 @@
+<app-menu></app-menu>
+<div class="background">
+    <div class="form-container" @slideUp>
+      <div class="card">
+        <h2>Đăng nhập</h2>
+        <form (ngSubmit)="onLogin()">
+          <div class="input-group">
+            <span><i class=""></i></span>
+            <input 
+              type="text" 
+              placeholder="Tên đăng nhập" 
+              [(ngModel)]="user.tendangnhap" 
+              name="tendangnhap" 
+              required />
+          </div>
+  
+          <div class="input-group">
+            <span><i class=""></i></span>
+            <input 
+              type="password" 
+              placeholder="Mật khẩu" 
+              [(ngModel)]="user.matkhau" 
+              name="matkhau" 
+              required />
+          </div>
+  
+          <button type="submit" class="submit-btn">Đăng nhập</button>
+        </form>
+  
+        <p class="login-link">
+          Bạn chưa có tài khoản?  
+          <a href="/dangky">Đăng ký ngay</a>
+        </p>
+      </div>
+    </div>
+  </div>
