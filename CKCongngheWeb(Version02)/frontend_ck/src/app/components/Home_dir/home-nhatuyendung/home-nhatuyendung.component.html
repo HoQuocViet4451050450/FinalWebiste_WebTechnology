@@ -1,0 +1,105 @@
+<app-menu-nhatuyendung></app-menu-nhatuyendung>
+
+<div class="container">
+  <h2>Quản lý bài đăng tuyển dụng</h2>
+
+  <div *ngIf="message" class="alert alert-info">{{ message }}</div>
+
+  <form (ngSubmit)="editMode ? updatePost() : createPost()">
+    <div>
+      <label>Tiêu đề</label>
+      <input [(ngModel)]="post.tieude" name="tieude" required />
+    </div>
+
+    <div>
+      <label>Mô tả công việc</label>
+      <textarea [(ngModel)]="post.motacongviec" name="motacongviec" required></textarea>
+    </div>
+
+    <div>
+      <label>Yêu cầu công việc</label>
+      <textarea [(ngModel)]="post.yeucaucongviec" name="yeucaucongviec"></textarea>
+    </div>
+
+    <div>
+      <label>Quyền lợi</label>
+      <textarea [(ngModel)]="post.quyenloi" name="quyenloi"></textarea>
+    </div>
+
+    <div>
+      <label>Mức lương</label>
+      <input type="number" [(ngModel)]="post.mucluong" name="mucluong" />
+    </div>
+
+    <div>
+      <label>Vị trí việc làm</label>
+      <input [(ngModel)]="post.vitrivieclam" name="vitrivieclam" />
+    </div>
+
+    <div>
+      <label>Thông tin liên hệ</label>
+      <input [(ngModel)]="post.thongtinlienhe" name="thongtinlienhe" />
+    </div>
+
+    <div>
+      <label>Hạn nộp hồ sơ</label>
+      <input type="date" [(ngModel)]="post.hannophoso" name="hannophoso" />
+    </div>
+
+    <div>
+      <label>Yêu cầu về hồ sơ</label>
+      <textarea [(ngModel)]="post.yeucauvehoso" name="yeucauvehoso"></textarea>
+    </div>
+
+    <div>
+      <label>Hình ảnh</label>
+      <input [(ngModel)]="post.hinhanh" name="hinhanh" placeholder="URL hình ảnh" />
+    </div>
+
+    <button type="submit">{{ editMode ? 'Cập nhật' : 'Tạo mới' }}</button>
+    <button type="button" (click)="resetForm()" *ngIf="editMode">Hủy</button>
+  </form>
+
+  <hr />
+
+  <h3>Danh sách bài đăng</h3>
+  <table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Tiêu đề</th>
+        <th>Mô tả công việc</th>
+        <th>Yêu cầu công việc</th>
+        <th>Quyền lợi</th>
+        <th>Mức lương</th>
+        <th>Vị trí</th>
+        <th>Thông tin liên hệ</th>
+        <th>Hạn nộp</th>
+        <th>Yêu cầu hồ sơ</th>
+        <th>Hình ảnh</th>
+        <th>Hành động</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of posts">
+        <td>{{ item.id }}</td>
+        <td>{{ item.tieude }}</td>
+        <td>{{ item.motacongviec }}</td>
+        <td>{{ item.yeucaucongviec }}</td>
+        <td>{{ item.quyenloi }}</td>
+        <td>{{ item.mucluong }}</td>
+        <td>{{ item.vitrivieclam }}</td>
+        <td>{{ item.thongtinlienhe }}</td>
+        <td>{{ item.hannophoso | date }}</td>
+        <td>{{ item.yeucauvehoso }}</td>
+        <td>
+          <img *ngIf="item.hinhanh" [src]="item.hinhanh" alt="Hình ảnh" width="60" />
+        </td>
+        <td>
+          <button (click)="editPost(item)">Sửa</button>
+          <button (click)="deletePost(item.id)">Xóa</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

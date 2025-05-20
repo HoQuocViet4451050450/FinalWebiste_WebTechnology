@@ -1,0 +1,108 @@
+<app-menu-sinhvien></app-menu-sinhvien>
+<div *ngIf="loading" class="loading-spinner">
+  <p>Loading...</p>
+</div>
+
+<div *ngIf="!loading">
+  <div class="profile-container">
+    <!-- Hồ sơ sinh viên -->
+    <h2 *ngIf="!isEditMode">Thông tin hồ sơ sinh viên</h2>
+    
+    <h3 *ngIf="isEditMode" class="form-title">Chỉnh sửa hồ sơ sinh viên</h3>
+
+    <form *ngIf="isEditMode" (ngSubmit)="updateUserProfile()">
+      <div class="form-group">
+        <label for="anhdaidien">Ảnh Đại Diện (Link URL)</label>
+        <input
+          type="text"
+          id="anhdaidien"
+          [(ngModel)]="userProfile.anhdaidien"
+          name="anhdaidien"
+          class="form-control"
+          placeholder="Nhập liên kết ảnh đại diện"
+        />
+    </div>
+
+      <div class="form-group">
+        <label for="tentruong">Tên Trường</label>
+        <input
+          type="text"
+          id="tentruong"
+          [(ngModel)]="userProfile.tentruong"
+          name="tentruong"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="nganhhoc">Ngành Học</label>
+        <input
+          type="text"
+          id="nganhhoc"
+          [(ngModel)]="userProfile.nganhhoc"
+          name="nganhhoc"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="namtotnghiep">Năm Tốt Nghiệp</label>
+        <input
+          type="text"
+          id="namtotnghiep"
+          [(ngModel)]="userProfile.namtotnghiep"
+          name="namtotnghiep"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="trangthaitotnghiep">Trạng Thái Tốt Nghiệp</label>
+        <select
+          id="trangthaitotnghiep"
+          [(ngModel)]="userProfile.trangthaitotnghiep"
+          name="trangthaitotnghiep"
+          class="form-control"
+        >
+          <option value="Đã tốt nghiệp">Đã tốt nghiệp</option>
+          <option value="Chưa tốt nghiệp">Chưa tốt nghiệp</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="linkcv">Link CV</label>
+        <input
+          type="text"
+          id="linkcv"
+          [(ngModel)]="userProfile.linkcv"
+          name="linkcv"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="gioithieubanthan">Giới Thiệu Bản Thân</label>
+        <textarea
+          id="gioithieubanthan"
+          [(ngModel)]="userProfile.gioithieubanthan"
+          name="gioithieubanthan"
+          class="form-control"
+        ></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Cập Nhật Hồ Sơ</button>
+      <button type="button" class="btn btn-secondary" (click)="cancelEditMode()">Hủy</button>
+    </form>
+
+    <div *ngIf="!isEditMode">
+               <!-- Hiển thị ảnh đại diện nếu có -->
+               <div class="profile-avatar">
+                <img *ngIf="userProfile.anhdaidien" [src]="userProfile.anhdaidien" alt="Ảnh Đại Diện" class="profile-image" />
+                <p *ngIf="!userProfile.anhdaidien">Chưa có ảnh đại diện</p>
+              </div>
+      <p><strong>Tên Trường:</strong> {{ userProfile.tentruong }}</p>
+      <p><strong>Ngành Học:</strong> {{ userProfile.nganhhoc }}</p>
+      <p><strong>Năm Tốt Nghiệp:</strong> {{ userProfile.namtotnghiep }}</p>
+      <p><strong>Trạng Thái Tốt Nghiệp:</strong> {{ userProfile.trangthaitotnghiep }}</p>
+      <p><strong>Link CV:</strong> <a href="{{ userProfile.linkcv }}" target="_blank">Xem CV</a></p>
+      <p><strong>Giới Thiệu Bản Thân:</strong> {{ userProfile.gioithieubanthan }}</p>
+
+      <button class="btn btn-primary" (click)="enableEditMode()">Chỉnh Sửa</button>
+    </div>
+  </div>
+</div>
+

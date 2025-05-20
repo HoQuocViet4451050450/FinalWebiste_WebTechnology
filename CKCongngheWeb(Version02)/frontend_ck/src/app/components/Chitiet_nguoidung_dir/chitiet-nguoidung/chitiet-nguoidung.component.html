@@ -1,0 +1,47 @@
+<!-- Hiển thị menu tùy loại người dùng -->
+<app-menu-nhatuyendung *ngIf="loainguoidung === 'nhatuyendung'"></app-menu-nhatuyendung>
+<app-menu-sinhvien *ngIf="loainguoidung === 'sinhvien'"></app-menu-sinhvien>
+
+<!-- Form thông tin chi tiết người dùng -->
+<div class="chitiet-container">
+  <h2>Thông Tin Chi Tiết Người Dùng</h2>
+
+  <form [formGroup]="chitietForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label>Họ tên:</label>
+      <input type="text" formControlName="hoten" />
+    </div>
+
+    <div>
+      <label>Ngày sinh:</label>
+      <input type="date" formControlName="ngaysinh" />
+    </div>
+
+    <div>
+      <label>Quê quán:</label>
+      <input type="text" formControlName="quequan" />
+    </div>
+
+    <div>
+      <label>Số điện thoại:</label>
+      <input type="text" formControlName="sodienthoai" />
+    </div>
+
+    <div>
+      <label>CCCD:</label>
+      <input type="text" formControlName="cccd" />
+    </div>
+
+    <div>
+      <label>Địa chỉ thường trú:</label>
+      <input type="text" formControlName="diachithuongtru" />
+    </div>
+
+    <div>
+      <label>Nghề nghiệp:</label>
+      <input type="text" formControlName="nghenghiep" />
+    </div>
+
+    <button type="submit">Cập nhật</button>
+  </form>
+</div>

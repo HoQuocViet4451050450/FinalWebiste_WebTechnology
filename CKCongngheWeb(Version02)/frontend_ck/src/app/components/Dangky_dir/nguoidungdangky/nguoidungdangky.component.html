@@ -1,0 +1,71 @@
+<app-menu></app-menu>
+<div class="background">
+    <div class="form-container" @slideUp>
+      <div class="card">
+        <h2>Đăng ký</h2>
+        <form (ngSubmit)="onSubmit()">
+          <div class="input-group">
+            <span><i class=""></i></span>
+            <input 
+              type="text" 
+              placeholder="Tên đăng nhập" 
+              [(ngModel)]="user.tendangnhap" 
+              name="tendangnhap" 
+              required />
+          </div>
+  
+          <div class="input-group">
+            <span><i class=""></i></span>
+            <input 
+              type="email" 
+              placeholder="Email" 
+              [(ngModel)]="user.email" 
+              name="email" 
+              required />
+          </div>
+  
+          <div class="input-group">
+            <span><i class=""></i></span>
+            <input 
+              type="password" 
+              placeholder="Mật khẩu" 
+              [(ngModel)]="user.matkhau" 
+              name="matkhau" 
+              required />
+          </div>
+  
+          <!-- Trường nhập lại mật khẩu -->
+          <div class="input-group">
+            <span><i class=""></i></span>
+            <input 
+              type="password" 
+              placeholder="Nhập lại mật khẩu" 
+              [(ngModel)]="repassword" 
+              name="repassword" 
+              required />
+          </div>
+  
+          <!-- Hiển thị cảnh báo nếu mật khẩu không khớp -->
+          <p *ngIf="passwordMismatch" style="color: red;">
+            Mật khẩu và Nhập lại mật khẩu không khớp.
+          </p>
+  
+          <div class="input-group">
+            <span><i class=""></i></span>
+            <select [(ngModel)]="user.loainguoidung" name="loainguoidung" required>
+              <option value="" disabled selected hidden>Chọn loại người dùng</option>
+              <option value="sinhvien">Sinh viên</option>
+              <option value="nhatuyendung">Nhà tuyển dụng</option>
+            </select>
+          </div>
+  
+          <button type="submit" class="submit-btn">Đăng ký</button>
+        </form>
+  
+        <p class="login-link">
+          Bạn đã có tài khoản?  
+          <a href="/dangnhap">Đăng nhập ngay</a>
+        </p>
+      </div>
+    </div>
+  </div>

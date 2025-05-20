@@ -1,0 +1,35 @@
+<!-- Import Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<nav class="navbar navbar-dark bg-dark shadow" @slideInFromRight>
+  <div class="container">
+    <a class="navbar-brand fw-bold">
+      <i class="fas fa-briefcase"></i> Giao Dịch Việc Làm TopJob
+    </a>
+    <ul class="navbar-nav ms-auto d-flex flex-row gap-3">
+      <li class="nav-item">
+        <a class="nav-link text-light" routerLink="/home-sinhvien">
+          <i class="fas fa-house"></i> Trang chủ
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" routerLink="/chitiet-nguoidung">
+          <i class="fas fa-id-card"></i> Chi tiết sinh viên
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-light" routerLink="/hoso-sinhvien">
+          <i class="fas fa-file-alt"></i> Hồ sơ sinh viên
+        </a>
+      </li>
+            <li class="nav-link text-light" style="margin-bottom: 20px; font-weight: bold;">
+  Xin chào, {{ hoten }}
+      </li>
+      <li class="nav-item">
+        <button class="nav-link text-light" (click)="dangXuat()">
+          <i class="fas fa-sign-out-alt"></i> Đăng xuất
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>

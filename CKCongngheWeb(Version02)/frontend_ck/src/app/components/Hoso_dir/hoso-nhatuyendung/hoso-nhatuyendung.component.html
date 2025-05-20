@@ -1,0 +1,118 @@
+<app-menu-nhatuyendung></app-menu-nhatuyendung>
+
+<div *ngIf="loading" class="loading-spinner">
+  <p>Loading...</p>
+</div>
+
+<div *ngIf="!loading">
+  <div class="profile-container">
+    <!-- Hồ sơ nhà tuyển dụng -->
+    <h2 *ngIf="!isEditMode">Thông tin hồ sơ nhà tuyển dụng</h2>
+    
+    <h3 *ngIf="isEditMode" class="form-title">Chỉnh sửa hồ sơ nhà tuyển dụng</h3>
+
+    <form *ngIf="isEditMode" (ngSubmit)="updateUserProfile()">
+        <div class="form-group">
+            <label for="anhdaidien">Ảnh Đại Diện (Link URL)</label>
+            <input
+              type="text"
+              id="anhdaidien"
+              [(ngModel)]="userProfile.anhdaidien"
+              name="anhdaidien"
+              class="form-control"
+              placeholder="Nhập liên kết ảnh đại diện"
+            />
+        </div>
+
+      <div class="form-group">
+        <label for="tencongty">Tên Công Ty</label>
+        <input
+          type="text"
+          id="tencongty"
+          [(ngModel)]="userProfile.tencongty"
+          name="tencongty"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="nguoidaidien">Người Đại Diện</label>
+        <input
+          type="text"
+          id="nguoidaidien"
+          [(ngModel)]="userProfile.nguoidaidien"
+          name="nguoidaidien"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="sonamhoatdong">Số năm hoạt động</label>
+        <input
+          type="text"
+          id="sonamhoatdong"
+          [(ngModel)]="userProfile.sonamhoatdong"
+          name="sonamhoatdong"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="emailcongty">Email Công Ty</label>
+        <input
+          type="text"
+          id="emailcongty"
+          [(ngModel)]="userProfile.emailcongty"
+          name="emailcongty"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="sodienthoaicongty">Số Điện Thoại Công Ty</label>
+        <input
+          type="text"
+          id="sodienthoaicongty"
+          [(ngModel)]="userProfile.sodienthoaicongty"
+          name="sodienthoaicongty"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="linkwebsite">Link Website</label>
+        <input
+          type="text"
+          id="linkwebsite"
+          [(ngModel)]="userProfile.linkwebsite"
+          name="linkwebsite"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label for="gioithieucongty">Giới Thiệu Công Ty</label>
+        <textarea
+          id="gioithieucongty"
+          [(ngModel)]="userProfile.gioithieucongty"
+          name="gioithieucongty"
+          class="form-control"
+        ></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Cập Nhật Hồ Sơ</button>
+      <button type="button" class="btn btn-secondary" (click)="cancelEditMode()">Hủy</button>
+    </form>
+
+    <div *ngIf="!isEditMode">
+         <!-- Hiển thị ảnh đại diện nếu có -->
+         <div class="profile-avatar">
+            <img *ngIf="userProfile.anhdaidien" [src]="userProfile.anhdaidien" alt="Ảnh Đại Diện" class="profile-image" />
+            <p *ngIf="!userProfile.anhdaidien">Chưa có ảnh đại diện</p>
+          </div>
+      
+        <p><strong>Tên Công Ty:</strong> {{ userProfile.tencongty }}</p>
+        <p><strong>Người Đại Diện:</strong> {{ userProfile.nguoidaidien }}</p>
+        <p><strong>Số Năm Hoạt Động:</strong> {{ userProfile.sonamhoatdong }}</p>
+        <p><strong>Email Công Ty:</strong> {{ userProfile.emailcongty }}</p>
+        <p><strong>Số Điện Thoại Công Ty:</strong> {{ userProfile.sodienthoaicongty }}</p>
+        <p><strong>Link Website:</strong> <a href="{{ userProfile.linkwebsite }}" target="_blank">Xem Website</a></p>
+        <p><strong>Giới Thiệu Công Ty:</strong> {{ userProfile.gioithieucongty }}</p>
+      
+        <button class="btn btn-primary" (click)="enableEditMode()">Chỉnh Sửa</button>
+      </div>
+  </div>
+</div>

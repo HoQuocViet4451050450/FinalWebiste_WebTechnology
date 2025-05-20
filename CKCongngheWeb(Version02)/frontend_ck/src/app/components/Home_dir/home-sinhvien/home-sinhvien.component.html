@@ -1,0 +1,112 @@
+<app-menu-sinhvien></app-menu-sinhvien>
+
+<div class="container">
+  <h2>Quản lý bài đăng ứng tuyển</h2>
+
+  <div *ngIf="message" class="alert alert-info">{{ message }}</div>
+
+  <form (ngSubmit)="editMode ? updatePost() : createPost()">
+    <div>
+      <label>Tiêu đề</label>
+      <input [(ngModel)]="post.tieude" name="tieude" required />
+    </div>
+
+    <div>
+      <label>Mô tả ngắn</label>
+      <textarea [(ngModel)]="post.motangan" name="motangan" required></textarea>
+    </div>
+
+    <div>
+      <label>Kỹ năng chuyên môn</label>
+      <textarea [(ngModel)]="post.kynangchuyenmon" name="kynangchuyenmon"></textarea>
+    </div>
+
+    <div>
+      <label>Kinh nghiệm làm việc</label>
+      <textarea [(ngModel)]="post.kinhnghiemlamviec" name="kinhnghiemlamviec"></textarea>
+    </div>
+
+    <div>
+      <label>Trình độ học vấn</label>
+      <input [(ngModel)]="post.trinhdohocvan" name="trinhdohocvan" />
+    </div>
+
+    <div>
+      <label>Mức lương mong muốn</label>
+      <input [(ngModel)]="post.mucluongmongmuon" name="mucluongmongmuon" />
+    </div>
+
+    <div>
+      <label>Vị trí tìm việc</label>
+      <input [(ngModel)]="post.vitritimviec" name="vitritimviec" />
+    </div>
+
+    <div>
+      <label>Hình thức làm việc</label>
+      <input [(ngModel)]="post.hinhthuclamviec" name="hinhthuclamviec" />
+    </div>
+
+    <div>
+      <label>Thông tin liên hệ</label>
+      <input [(ngModel)]="post.thongtinlienhe" name="thongtinlienhe" />
+    </div>
+
+    <div>
+      <label>Ngày bắt đầu làm</label>
+      <input type="date" [(ngModel)]="post.ngaybatdaulam" name="ngaybatdaulam" />
+    </div>
+
+    <div>
+      <label>Hình ảnh</label>
+      <input [(ngModel)]="post.hinhanh" name="hinhanh" placeholder="URL hình ảnh" />
+    </div>
+
+    <button type="submit">{{ editMode ? 'Cập nhật' : 'Tạo mới' }}</button>
+    <button type="button" (click)="resetForm()" *ngIf="editMode">Hủy</button>
+  </form>
+
+  <hr />
+
+  <h3>Danh sách bài đăng ứng tuyển</h3>
+  <table border="1" cellpadding="5" cellspacing="0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Tiêu đề</th>
+        <th>Mô tả ngắn</th>
+        <th>Kỹ năng chuyên môn</th>
+        <th>Kinh nghiệm làm việc</th>
+        <th>Trình độ học vấn</th>
+        <th>Mức lương mong muốn</th>
+        <th>Vị trí tìm việc</th>
+        <th>Hình thức làm việc</th>
+        <th>Thông tin liên hệ</th>
+        <th>Ngày bắt đầu làm</th>
+        <th>Hình ảnh</th>
+        <th>Hành động</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of posts">
+        <td>{{ item.id }}</td>
+        <td>{{ item.tieude }}</td>
+        <td>{{ item.motangan }}</td>
+        <td>{{ item.kynangchuyenmon }}</td>
+        <td>{{ item.kinhnghiemlamviec }}</td>
+        <td>{{ item.trinhdohocvan }}</td>
+        <td>{{ item.mucluongmongmuon }}</td>
+        <td>{{ item.vitritimviec }}</td>
+        <td>{{ item.hinhthuclamviec }}</td>
+        <td>{{ item.thongtinlienhe }}</td>
+        <td>{{ item.ngaybatdaulam | date }}</td>
+        <td>
+          <img *ngIf="item.hinhanh" [src]="item.hinhanh" alt="Hình ảnh" width="60" />
+        </td>
+        <td>
+          <button (click)="editPost(item)">Sửa</button>
+          <button (click)="deletePost(item.id)">Xóa</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,111 @@
+.container {
+  padding: 2rem;
+  background-color: #f5f5f5; /* nền xám nhạt */
+  color: #222222; /* chữ xám đen */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2, h3 {
+  color: #222222;
+  margin-bottom: 1rem;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  background-color: #ffffff; /* nền trắng */
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgb(0 0 0 / 0.1);
+  margin-bottom: 2rem;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 0.5rem;
+  color: #555555; /* xám */
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+input, textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fff;
+  color: #222;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: #0a74da;
+  outline: none;
+}
+
+input[type="date"] {
+  color-scheme: light;
+}
+
+button {
+  padding: 0.5rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #0a74da; /* xanh dương đậm */
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  margin-right: 0.5rem;
+}
+
+button:hover {
+  background-color: #0c8efc;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background-color: #ffffff; /* nền bảng trắng */
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+  color: #222222;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+}
+
+th {
+  background-color: #f0f0f0;
+  color: #555555;
+  font-weight: 600;
+}
+
+tr:hover {
+  background-color: #f9f9f9;
+}
+
+img {
+  border-radius: 4px;
+}
+
+.alert {
+  background-color: #d9edf7;
+  color: #31708f;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  border: 1px solid #bce8f1;
+}
